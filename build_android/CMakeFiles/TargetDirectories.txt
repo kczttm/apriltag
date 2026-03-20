@@ -1,0 +1,8 @@
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/apriltag.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/apriltag_demo.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/edit_cache.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/rebuild_cache.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/list_install_components.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/install.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/install/local.dir
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/install/strip.dir

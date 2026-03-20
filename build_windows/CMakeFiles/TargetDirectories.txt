@@ -1,0 +1,5 @@
+C:/Users/ckong35/workspaces/apriltag/build_windows/CMakeFiles/apriltag.dir
+C:/Users/ckong35/workspaces/apriltag/build_windows/CMakeFiles/apriltag_demo.dir
+C:/Users/ckong35/workspaces/apriltag/build_windows/CMakeFiles/INSTALL.dir
+C:/Users/ckong35/workspaces/apriltag/build_windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/ckong35/workspaces/apriltag/build_windows/CMakeFiles/ZERO_CHECK.dir

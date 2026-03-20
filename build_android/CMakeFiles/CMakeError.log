@@ -1,0 +1,128 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_400c8 && [1/2] Building C object CMakeFiles/cmTC_400c8.dir/src.c.o
+FAILED: CMakeFiles/cmTC_400c8.dir/src.c.o 
+C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -DCMAKE_HAVE_LIBC_PTHREAD  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_400c8.dir/src.c.o -MF CMakeFiles\cmTC_400c8.dir\src.c.o.d -o CMakeFiles/cmTC_400c8.dir/src.c.o -c C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c:13:3: error: call to undeclared function 'pthread_cancel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   13 |   pthread_cancel(thread);
+      |   ^
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c:13:3: note: did you mean 'pthread_once'?
+C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/pthread.h:264:5: note: 'pthread_once' declared here
+  264 | int pthread_once(pthread_once_t* _Nonnull __once, void (* _Nonnull __init_routine)(void));
+      |     ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_78078 && [1/2] Building C object CMakeFiles/cmTC_78078.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_78078
+FAILED: cmTC_78078 
+cmd.exe /C "cd . && C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_78078.dir/CheckFunctionExists.c.o -o cmTC_78078  -lpthreads  -latomic -lm && cd ."
+ld.lld: error: unable to find library -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_6d6d9 && [1/2] Building C object CMakeFiles/cmTC_6d6d9.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_6d6d9
+FAILED: cmTC_6d6d9 
+cmd.exe /C "cd . && C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_6d6d9.dir/CheckFunctionExists.c.o -o cmTC_6d6d9  -lpthread  -latomic -lm && cd ."
+ld.lld: error: unable to find library -lpthread
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_8cac2 && [1/2] Building C object CMakeFiles/cmTC_8cac2.dir/src.c.o
+FAILED: CMakeFiles/cmTC_8cac2.dir/src.c.o 
+C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -DCMAKE_HAVE_LIBC_PTHREAD  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_8cac2.dir/src.c.o -MF CMakeFiles\cmTC_8cac2.dir\src.c.o.d -o CMakeFiles/cmTC_8cac2.dir/src.c.o -c C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c:13:3: error: call to undeclared function 'pthread_cancel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   13 |   pthread_cancel(thread);
+      |   ^
+C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp/src.c:13:3: note: did you mean 'pthread_once'?
+C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/pthread.h:264:5: note: 'pthread_once' declared here
+  264 | int pthread_once(pthread_once_t* _Nonnull __once, void (* _Nonnull __init_routine)(void));
+      |     ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_05a21 && [1/2] Building C object CMakeFiles/cmTC_05a21.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_05a21
+FAILED: cmTC_05a21 
+cmd.exe /C "cd . && C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_05a21.dir/CheckFunctionExists.c.o -o cmTC_05a21  -lpthreads  -latomic -lm && cd ."
+ld.lld: error: unable to find library -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: C:/Users/ckong35/workspaces/apriltag/build_android/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja.exe cmTC_d0583 && [1/2] Building C object CMakeFiles/cmTC_d0583.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_d0583
+FAILED: cmTC_d0583 
+cmd.exe /C "cd . && C:\PROGRA~1\Unity\Hub\Editor\60003~1.11F\Editor\Data\PLAYBA~1\ANDROI~1\NDK\TOOLCH~1\llvm\prebuilt\WINDOW~1\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot="C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot" -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_d0583.dir/CheckFunctionExists.c.o -o cmTC_d0583  -lpthread  -latomic -lm && cd ."
+ld.lld: error: unable to find library -lpthread
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
